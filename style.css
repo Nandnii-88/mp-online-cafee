@@ -1,0 +1,217 @@
+/* Premium Modern UI for MP Cafe Finder */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    --secondary-gradient: linear-gradient(135deg, #ff7675 0%, #fab1a0 100%);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --text-dark: #2d3436;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f5;
+    background-image: radial-gradient(#6c5ce722 1px, transparent 1px);
+    background-size: 30px 30px; /* Subtle pattern background */
+    margin: 0;
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Grid Layout */
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.cafe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding-bottom: 100px; /* Space for sticky bar */
+}
+
+/* Fancy Glassmorphism Cards */
+.cafe-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cafe-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(108, 92, 231, 0.15);
+    background: #ffffff;
+    border-color: #6c5ce7;
+}
+
+.cafe-card h3 {
+    font-size: 1.4rem;
+    color: #6c5ce7;
+    margin-bottom: 10px;
+}
+
+.cafe-card p {
+    color: #636e72;
+    font-size: 0.95rem;
+}
+
+/* Interactive Buttons */
+.view-menu-btn {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 15px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.view-menu-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Floating Order Bar */
+.order-bar {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 550px;
+    background: #2d3436;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 35px;
+    border-radius: 100px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+    z-index: 1000;
+}
+
+.order-bar h3 { 
+    margin: 0; 
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.order-bar span {
+    font-weight: 700;
+    color: #fab1a0;
+}
+
+.order-bar .view-menu-btn {
+    width: auto;
+    margin: 0;
+    padding: 10px 25px;
+    background: var(--secondary-gradient);
+}
+
+/* Menu Section Spacing */
+.menu-section {
+    margin-bottom: 50px;
+}
+
+.menu-section h2 {
+    font-size: 1.8rem;
+    border-left: 6px solid #ff7675;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+/* Modal (Background) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6); 
+    backdrop-filter: blur(8px);
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: white;
+    margin: 10% auto; 
+    padding: 40px;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideUp 0.4s ease;
+}
+/* Centered Fancy Total Bar */
+.order-bar {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto; /* Shrinks to fit the text */
+    min-width: 250px;
+    background: rgba(45, 52, 54, 0.95); /* Semi-transparent dark */
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 100px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+    text-align: center;
+}
+
+.order-bar h3 span {
+    color: #fab1a0; /* Keeps your nice coral color for the numbers */
+    margin-left: 10px;
+}
+@keyframes slideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+    header h1 { font-size: 1.8rem; }
+    .order-bar { 
+        width: 90%; 
+        padding: 15px 20px; 
+        flex-direction: column; 
+        gap: 10px;
+        border-radius: 25px;
+    }
+}

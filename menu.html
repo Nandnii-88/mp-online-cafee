@@ -1,0 +1,71 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Online Cafe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="cafe-title">Cafe Menu</h1>
+        <a href="index.html" style="color: #ff4757; text-decoration: none; font-weight: bold;">← Back to Cafes</a>
+    </header>
+
+    <div class="container">
+    <section class="menu-section">
+        <h2>🍱 Main Course</h2>
+        <div id="main-course-list" class="cafe-grid">
+            </div>
+    </section>
+
+    <section class="menu-section">
+        <h2>🍟 Snacks</h2>
+        <div id="snacks-list" class="cafe-grid">
+            </div>
+    </section>
+
+    <section class="menu-section">
+        <h2>🥤 Drinks & Desserts</h2>
+        <div id="drinks-list" class="cafe-grid">
+            </div>
+    </section>
+</div>
+    <div class="order-bar">
+        <h3>Total: ₹<span id="total-price">0</span></h3>
+        <button class="view-menu-btn" onclick="alert('Order Placed!')">Place Order</button>
+    </div>
+
+    <script src="menu.js"></script>
+<div id="orderModal" class="modal">
+    <div class="modal-content">
+        <h2 style="color: #6c5ce7; margin-bottom: 20px;">📦 Delivery Details</h2>
+        <form id="delivery-form">
+            <div style="margin-bottom: 15px; text-align: left;">
+                <label>Full Name</label>
+                <input type="text" id="cust-name" placeholder="Enter your name" required 
+                       style="width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #ddd; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 15px; text-align: left;">
+                <label>Phone Number</label>
+                <input type="tel" id="cust-phone" placeholder="Enter phone number" required
+                       style="width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #ddd; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 15px; text-align: left;">
+                <label>Delivery Address</label>
+                <textarea id="cust-address" placeholder="Flat No, Building, Area in Bhopal/Indore" required
+                          style="width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #ddd; margin-top: 5px; height: 80px;"></textarea>
+            </div>
+            
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 15px; margin-bottom: 20px;">
+                <p style="margin: 0; font-size: 0.9rem;">Total Bill: <strong style="color: #2d3436;">₹<span id="modal-total-price">0</span></strong></p>
+                <p style="margin: 5px 0 0; font-size: 0.8rem; color: #636e72;">From: <span id="modal-cafe-name"></span></p>
+            </div>
+
+            <button type="submit" class="view-menu-btn">Confirm & Deliver</button>
+            <button type="button" onclick="closeModal()" style="background: none; color: #ff7675; border: none; margin-top: 10px; cursor: pointer;">Cancel</button>
+        </form>
+<div class="order-bar" style="justify-content: center;">
+    <h3 style="font-size: 1.5rem;">Total Amount: ₹<span id="total-price">0</span></h3>
+</div></body>
+</html>
